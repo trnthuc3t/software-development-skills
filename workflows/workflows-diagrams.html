@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Duy SDLC Kit — Sơ đồ luồng làm việc</title>
+<style>
+  :root { --orange:#F26522; --ink:#1f2430; --muted:#5b6472; --line:#e6e8ec; --bg:#f6f7f9; }
+  * { box-sizing:border-box; }
+  body { margin:0; font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+         color:var(--ink); background:var(--bg); }
+  header { background:linear-gradient(90deg,var(--orange),#ff8a52); color:#fff; padding:28px 32px; }
+  header h1 { margin:0 0 4px; font-size:22px; }
+  header p { margin:0; opacity:.92; font-size:14px; }
+  main { max-width:1080px; margin:0 auto; padding:24px 20px 60px; }
+  .card { background:#fff; border:1px solid var(--line); border-radius:14px; padding:20px 22px;
+          margin:20px 0; box-shadow:0 1px 2px rgba(20,24,31,.04); }
+  .card h2 { margin:0 0 2px; font-size:17px; color:var(--ink); }
+  .card .sub { margin:0 0 14px; font-size:13px; color:var(--muted); }
+  .mermaid { text-align:center; overflow-x:auto; }
+  .legend { font-size:12.5px; color:var(--muted); margin-top:10px; border-top:1px dashed var(--line); padding-top:10px; }
+  .pill { display:inline-block; background:#fff3ec; color:var(--orange); border:1px solid #ffd8c2;
+          border-radius:999px; padding:2px 10px; font-size:12px; font-weight:600; margin-right:6px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Duy SDLC Kit — Sơ đồ luồng làm việc</h1>
+  <p>Chuẩn điều hướng &amp; các luồng nghiệp vụ · hộp = bước · lục giác = cổng anh Thức duyệt · thoi = rẽ nhánh</p>
+</header>
+<main>
+
+  <div class="card">
+    <h2><span class="pill">Điều hướng</span>Chọn luồng nào?</h2>
+    <p class="sub">PO xác định loại công việc rồi rẽ sang luồng tương ứng — rủi ro &amp; phạm vi quyết định số cổng.</p>
+    <pre class="mermaid">
+flowchart TD
+    A["anh Thức nêu yêu cầu"] --> B{"Loại công việc?"}
+    B -->|"Sản phẩm mới"| C["Luồng gốc B1 đến B6 (WORKFLOW.md)"]
+    B -->|"Lỗi production / UAT"| D["Luồng H — Hotfix"]
+    B -->|"Thay đổi nhỏ trên hệ thống đã có"| E["Luồng C — Change Request"]
+    B -->|"Đưa lên production"| F["Luồng R — Release"]
+    C -.->|"Sau UAT"| F
+    D -.->|"Nếu lên production"| F
+    E -.->|"Nếu lên production"| F
+    </pre>
+  </div>
+
+  <div class="card">
+    <h2><span class="pill">Dự án mới</span>Pipeline B1 → B6</h2>
+    <p class="sub">Luồng gốc trong WORKFLOW.md — 6 giai đoạn, 6 cổng phê duyệt.</p>
+    <pre class="mermaid">
+flowchart LR
+    B1["B1 BRD"] --> G1{{"GATE-1"}}
+    G1 --> B2["B2 SRS + Techstack + HLD"] --> G2{{"GATE-2"}}
+    G2 --> B3["B3 LLD + API + design + scaffold"] --> G3{{"GATE-3"}}
+    G3 --> B4["B4 Code + Test"] --> G4{{"GATE-4"}}
+    G4 --> B5["B5 Security"] --> G5{{"GATE-5"}}
+    G5 --> B6["B6 UAT"] --> G6{{"GATE-6"}}
+    </pre>
+  </div>
+
+  <div class="card">
+    <h2><span class="pill">Luồng H</span>Hotfix — sửa lỗi gấp</h2>
+    <p class="sub">Vá đúng một lỗi, gộp về 1 cổng GATE-HOTFIX; Sev1/chạm dữ liệu bắt buộc rà bảo mật delta.</p>
+    <pre class="mermaid">
+flowchart TD
+    H0["H0 · PO: Tiếp nhận & phân loại Sev1-4"] --> H1["H1 · Dev + Tester: Reproduce & root cause"]
+    H1 --> H2["H2 · Dev: Vá tối thiểu + regression test"]
+    H2 --> H3["H3 · Tester: Smoke + regression"]
+    H3 --> SEC{"Chạm auth / dữ liệu hoặc Sev1?"}
+    SEC -->|"Có"| HSEC["H-SEC · Security: rà bảo mật delta"]
+    SEC -->|"Không"| GATE
+    HSEC --> GATE{{"GATE-HOTFIX · anh Thức duyệt"}}
+    GATE -->|"Cần sửa"| H2
+    GATE -->|"Duyệt"| H4["H4 · DevOps: Deploy + smoke test"]
+    H4 -->|"Nếu production"| R["Sang Luồng R (từ R3)"]
+    H4 --> H5["H5 · PO: Cập nhật tài liệu + post-mortem"]
+    </pre>
+  </div>
+
+  <div class="card">
+    <h2><span class="pill">Luồng C</span>Change Request — thay đổi nhỏ</h2>
+    <p class="sub">Chỉ làm phần delta, giữ truy vết; 2 cổng CR-1 (chốt phạm vi) và CR-2 (nghiệm thu).</p>
+    <pre class="mermaid">
+flowchart TD
+    C1["C1 · PO: Tiếp nhận CR"] --> C2["C2 · BA + SA: Phân tích tác động"]
+    C2 --> G1{{"GATE-CR-1 · anh Thức chốt phạm vi"}}
+    G1 -->|"Không làm / Hoãn"| STOP["Đóng hoặc hoãn CR"]
+    G1 -->|"Duyệt"| C3["C3 · SA + Designer: Cập nhật thiết kế (chỉ delta)"]
+    C3 --> C4["C4 · Dev đến Tester: Code + test delta & regression"]
+    C4 --> CSEC{"Chạm bảo mật?"}
+    CSEC -->|"Có"| SEC["C-SEC · Security: rà delta"]
+    CSEC -->|"Không"| G2
+    SEC --> G2{{"GATE-CR-2 · anh Thức nghiệm thu"}}
+    G2 -->|"Cần sửa"| C3
+    G2 -->|"Duyệt"| C5["C5 · DevOps: Phát hành"]
+    C5 -->|"Nếu production"| R["Sang Luồng R"]
+    </pre>
+  </div>
+
+  <div class="card">
+    <h2><span class="pill">Luồng R</span>Release — lên production</h2>
+    <p class="sub">Không hoàn tác: bắt buộc GATE-RELEASE + backup + rollback; xác nhận cuối trước khi deploy.</p>
+    <pre class="mermaid">
+flowchart TD
+    R1["R1 · DevOps: version, release-notes, rollback, backup"] --> R2["R2 · PO: Rà Go / No-Go"]
+    R2 --> GR{{"GATE-RELEASE · anh Thức duyệt (KHÔNG HOÀN TÁC)"}}
+    GR -->|"No-Go"| FIX["Quay lại xử lý"]
+    GR -->|"Go"| R3["R3: Chốt cửa sổ + xác nhận cuối + backup"]
+    R3 --> R4["R4 · DevOps: Deploy production + smoke test"]
+    R4 --> CHK{"Đạt tiêu chí?"}
+    CHK -->|"Không"| RB["Rollback theo kế hoạch"]
+    CHK -->|"Có"| R5["R5: Theo dõi sau phát hành"]
+    RB --> R6["R6 · PO: Đóng phát hành + thông báo"]
+    R5 --> GRD{{"GATE-RELEASE-DONE · anh Thức xác nhận"}}
+    GRD --> R6
+    </pre>
+    <div class="legend">Nguồn: <b>WORKFLOWS-EXTRA.md</b> (chuẩn điều hướng) · <b>workflows/hotfix.md</b> · <b>workflows/change-request.md</b> · <b>workflows/release.md</b></div>
+  </div>
+
+</main>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.9.1/mermaid.min.js"></script>
+<script>
+  mermaid.initialize({ startOnLoad:true, theme:'base', securityLevel:'loose',
+    themeVariables:{ primaryColor:'#fff3ec', primaryBorderColor:'#F26522', primaryTextColor:'#1f2430',
+      lineColor:'#8a94a6', fontFamily:'-apple-system,Segoe UI,Roboto,sans-serif', fontSize:'14px' }});
+</script>
+</body>
+</html>

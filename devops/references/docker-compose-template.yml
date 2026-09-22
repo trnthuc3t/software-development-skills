@@ -1,0 +1,50 @@
+# docker-compose.yml (UAT) — <Tên dự án>
+# LƯU Ý: thay <PORT_*> bằng port trong DẢI PORT anh Thức cấp. KHÔNG tự chọn port.
+services:
+  backend:
+    build: ../src/backend
+    env_file: .env
+    ports:
+      - "<PORT_BACKEND>:8080"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/health"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+    depends_on:
+      db:
+        condition: service_healthy
+    networks: [app]
+
+  frontend:
+    build: ../src/frontend
+    env_file: .env
+    ports:
+      - "<PORT_FRONTEND>:80"
+    depends_on:
+      backend:
+        condition: service_healthy
+    networks: [app]
+
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER}"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    networks: [app]
+    # KHÔNG expose port DB ra ngoài trên UAT trừ khi anh Thức yêu cầu.
+
+volumes:
+  db_data:
+
+networks:
+  app:
+    driver: bridge
