@@ -1,4 +1,4 @@
-# OOP & SOLID — Áp dụng cho Spring Boot (Duy)
+# OOP & SOLID — Áp dụng cho Spring Boot (Thức)
 
 Mục tiêu: mã dễ đọc, dễ test, dễ đổi. Dưới đây là cách áp OOP + SOLID **cụ thể trong Spring**, kèm ví dụ
 nên/không nên (rút gọn).

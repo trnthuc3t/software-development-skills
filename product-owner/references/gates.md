@@ -19,7 +19,7 @@ duyệt** — vẫn phải con người ký duyệt.
 - [ ] `SRS.md`: đủ FR + NFR, use case chính, truy vết ngược về mục tiêu BRD.
 - [ ] `function-map.html`: thẻ module + nền tảng (App/CMS) + trạng thái đặc tả (+ version); **phủ 1-1 danh mục FR của SRS**; tính năng "Chưa đặc tả" đã có kế hoạch làm rõ (không để lọt sang thiết kế).
 - [ ] `techstack.md`: mỗi lựa chọn có lý do + phương án thay thế đã cân nhắc; khớp NFR (tải, độ trễ...).
-- [ ] `techstack.md`: **mọi dòng có version cụ thể** (ngôn ngữ, framework, nền tảng, CSDL — kèm lý do chọn version) và **đã được anh Thức xác nhận từng dòng**; backend Java đã chốt Maven + cấu trúc package `com.duy.*`.
+- [ ] `techstack.md`: **mọi dòng có version cụ thể** (ngôn ngữ, framework, nền tảng, CSDL — kèm lý do chọn version) và **đã được anh Thức xác nhận từng dòng**; backend Java đã chốt Maven + cấu trúc package `com.thuc.*`.
 - [ ] `HLD.md`: sơ đồ component, luồng dữ liệu, điểm tích hợp, hạ tầng; nhất quán với techstack.
 - [ ] `architecture.html`: sơ đồ kiến trúc khối phân tầng (khối + công nghệ + luồng); **nhất quán với HLD.md** (cùng component/quyết định kiến trúc). Là bản "dễ nhìn" đi kèm, HLD.md vẫn là nguồn sự thật.
 - [ ] 3 tài liệu nhất quán với nhau và với BRD đã duyệt.

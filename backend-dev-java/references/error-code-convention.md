@@ -1,4 +1,4 @@
-# ERROR CODE & I18N CONVENTION — Backend Java/Spring Boot (chuẩn Duy)
+# ERROR CODE & I18N CONVENTION — Backend Java/Spring Boot (chuẩn Thức)
 
 > **Mã lỗi là một phần của đặc tả chi tiết API.** Client phụ thuộc vào **`errorCode`**, không phụ thuộc câu
 > chữ. Toàn hệ thống dùng envelope chuẩn `TransactionResponse<T>`; thông điệp đa ngôn ngữ qua `Translator`.

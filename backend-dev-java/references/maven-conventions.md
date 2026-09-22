@@ -1,7 +1,7 @@
-# MAVEN CONVENTION — Java/Spring Boot (Duy)
+# MAVEN CONVENTION — Java/Spring Boot (Thức)
 
 ## 1. Toạ độ artifact
-- `groupId` = `com.duy.<tên dự án>` (khớp gốc package).
+- `groupId` = `com.thuc.<tên dự án>` (khớp gốc package).
 - `artifactId` = `<tên dự án>-<tên service>` (ví dụ `billing-invoice`).
 - `version` = SemVer: `MAJOR.MINOR.PATCH` (`-SNAPSHOT` khi đang phát triển).
 - Bố cục chuẩn Maven: `src/main/java`, `src/main/resources`, `src/test/java`, `src/test/resources`.
@@ -17,7 +17,7 @@
     <relativePath/>
   </parent>
 
-  <groupId>com.duy.billing</groupId>
+  <groupId>com.thuc.billing</groupId>
   <artifactId>billing-invoice</artifactId>
   <version>1.0.0-SNAPSHOT</version>
 

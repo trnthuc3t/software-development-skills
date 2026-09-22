@@ -1,4 +1,4 @@
-# INPUT VALIDATION CONVENTION — Custom regex annotation (Java/Spring Boot, chuẩn Duy)
+# INPUT VALIDATION CONVENTION — Custom regex annotation (Java/Spring Boot, chuẩn Thức)
 
 > **Mọi format input phải được tham chiếu theo tài liệu SRS.** Không tự chế regex tuỳ hứng: mỗi ràng buộc
 > định dạng phải bám một quy tắc đã ghi trong `SRS.md` (và khớp `api-spec.yaml`). Mỗi loại input có một

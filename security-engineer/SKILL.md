@@ -29,7 +29,7 @@ GATE-4 đạt.
    Elevation — mỗi mối đe doạ nêu điểm vào, tài sản, biện pháp hiện có.
 2. **Đối chiếu OWASP Top 10**: kiểm authn/authz theo endpoint, kiểm soát input/injection, cấu hình sai,
    lộ dữ liệu nhạy cảm, SSRF, thành phần lỗi thời.
-3. **Đối chiếu chuẩn lập trình an toàn Duy** (căn cứ tuân thủ, bổ trợ OWASP): Web (Java/Angular/Next.js)
+3. **Đối chiếu chuẩn lập trình an toàn Thức** (căn cứ tuân thủ, bổ trợ OWASP): Web (Java/Angular/Next.js)
    theo **`SEC-WEB`**, Mobile (React Native/Flutter) theo **`SEC-MOBILE`**. Dùng checklist nền
    tảng `*/references/secure-coding-*.md`; điểm vào & ánh xạ ở **`references/secure-coding-index.md`**. Mọi
    finding gắn với một yêu cầu chuẩn phải **trích mã điều khoản** (vd `SEC-WEB §4.x`).

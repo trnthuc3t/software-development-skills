@@ -1,4 +1,4 @@
-# Secure Coding Checklist — Flutter (Duy Mobile)
+# Secure Coding Checklist — Flutter (Thức Mobile)
 
 Checklist secure coding cho **Flutter**, chắt từ chuẩn **SEC-MOBILE** (bản đã ký là bản chính thức; file này là checklist làm việc).
 

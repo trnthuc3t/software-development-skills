@@ -1,4 +1,4 @@
-# WORKFLOW — Quy trình SDLC đa vai trò (Duy) · NGUỒN SỰ THẬT DUY NHẤT
+# WORKFLOW — Quy trình SDLC đa vai trò (Thức) · NGUỒN SỰ THẬT DUY NHẤT
 
 > File này là **nguồn sự thật duy nhất** cho toàn bộ luồng làm việc (dự án mới **và** hệ thống cũ). Mọi
 > skill role đọc file này để biết đang ở đâu, chờ duyệt gì, đọc/ghi tài liệu nào.

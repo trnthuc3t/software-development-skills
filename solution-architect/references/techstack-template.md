@@ -46,8 +46,8 @@
 | Hạng mục | Giá trị chốt | Xác nhận |
 |----------|--------------|:--------:|
 | Maven module | single-module / multi-module: <chọn + lý do> | ☐ |
-| `groupId` / `artifactId` | `com.duy.<dự án>` / `<dự án>-<service>` | ☐ |
-| Package gốc | `com.duy.<dự án>.<service>` — package-by-feature (convention `backend-dev-java`) | ☐ |
+| `groupId` / `artifactId` | `com.thuc.<dự án>` / `<dự án>-<service>` | ☐ |
+| Package gốc | `com.thuc.<dự án>.<service>` — package-by-feature (convention `backend-dev-java`) | ☐ |
 
 ## Ràng buộc & Rủi ro công nghệ
 - <giấy phép, khả năng cung ứng, vendor lock-in, tuân thủ PDPL>
@@ -57,7 +57,7 @@
 ## ✅ Checklist trước GATE-2
 - [ ] **Mọi lựa chọn** có **Lý do** bám NFR + **≥1 phương án thay thế** đã cân nhắc (không mặc định framework).
 - [ ] **Mọi dòng có VERSION cụ thể** (ưu tiên LTS, kèm lý do chọn version) và **đã được anh Thức xác nhận** (cột Xác nhận ✅ đủ).
-- [ ] Backend Java: đã chốt & xác nhận **Maven** (module, groupId/artifactId) + **cấu trúc package** `com.duy.*`.
+- [ ] Backend Java: đã chốt & xác nhận **Maven** (module, groupId/artifactId) + **cấu trúc package** `com.thuc.*`.
 - [ ] Cột **NFR liên quan** trỏ đúng ID NFR ở SRS; mỗi lựa chọn truy vết được về yêu cầu.
 - [ ] Techstack **khớp kiểu kiến trúc** đã chốt ở HLD (mục 1).
 - [ ] Ô không dùng ghi rõ "Không áp dụng" + lý do; không để trống thiếu giải trình.

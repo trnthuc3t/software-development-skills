@@ -1,19 +1,19 @@
-# PACKAGE STRUCTURE — Convention Java/Spring Boot (Duy)
+# PACKAGE STRUCTURE — Convention Java/Spring Boot (Thức)
 
 ## 1. Gốc package (bắt buộc)
 ```
-com.duy.<tên dự án>.<tên service>
+com.thuc.<tên dự án>.<tên service>
 ```
 - Tất cả **lowercase**, không dấu tiếng Việt, không gạch dưới, không số mở đầu.
-- `groupId` (Maven) = `com.duy.<tên dự án>`; `artifactId` = `<tên dự án>-<tên service>`.
-- Ví dụ dự án `billing`, service `invoice` → gốc `com.duy.billing.invoice`.
+- `groupId` (Maven) = `com.thuc.<tên dự án>`; `artifactId` = `<tên dự án>-<tên service>`.
+- Ví dụ dự án `billing`, service `invoice` → gốc `com.thuc.billing.invoice`.
 
 ## 2. Package-by-feature (mặc định khuyến nghị)
 Chia trước hết theo **feature/nghiệp vụ**, trong mỗi feature mới chia theo tầng. Tránh chia theo tầng ở
 cấp cao nhất (package-by-layer) vì làm phình coupling khi hệ thống lớn.
 
 ```
-com.duy.billing.invoice
+com.thuc.billing.invoice
 ├── InvoiceServiceApplication.java        // @SpringBootApplication (đặt ở gốc service)
 ├── config/                               // cấu hình liên feature: Security, OpenAPI, Jackson, Async...
 │   ├── SecurityConfig.java

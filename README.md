@@ -1,4 +1,4 @@
-# Duy SDLC Kit — Bộ skill điều phối đội dự án đa vai trò
+# Thuc SDLC Kit — Bộ skill điều phối đội dự án đa vai trò
 
 Bộ **11 Agent Skill** giúp một Product Owner (con người: anh Thức) điều hành cả đội agent qua một
 pipeline SDLC có **cổng phê duyệt bắt buộc**. Người duyệt cuối luôn là con người.
@@ -9,7 +9,7 @@ pipeline SDLC có **cổng phê duyệt bắt buộc**. Người duyệt cuối 
 
 ## Thành phần
 ```
-duy-sdlc-kit/
+thuc-sdlc-kit/
 ├── WORKFLOW.md            # Quy trình tổng — nguồn sự thật duy nhất (mọi role đọc file này)
 ├── source-control.md      # Quản lý mã nguồn (GitFlow): 5 nhánh, naming feature/hotfix, PR, sync-back
 
@@ -18,7 +18,7 @@ duy-sdlc-kit/
 ├── solution-architect/    # techstack + HLD (B2), LLD + api-spec (B3), audit kỹ thuật (B0)
 ├── designer/              # design.md (B3)
 ├── backend-dev/           # scaffold (B3) + code + unit test (B4)
-├── backend-dev-java/      # bản chuyên biệt Java Spring Boot (package com.duy.*, Maven, OOP+SOLID)
+├── backend-dev-java/      # bản chuyên biệt Java Spring Boot (package com.thuc.*, Maven, OOP+SOLID)
 ├── frontend-dev/          # scaffold (B3) + code + unit test (B4)
 ├── mobile-dev/            # scaffold (B3) + code + unit test (B4)
 ├── tester/                # test-plan + test-cases + test-report (B4)

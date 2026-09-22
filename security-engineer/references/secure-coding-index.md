@@ -1,4 +1,4 @@
-# Secure Coding — Chỉ mục chuẩn & ánh xạ nền tảng (Duy SDLC Kit)
+# Secure Coding — Chỉ mục chuẩn & ánh xạ nền tảng (Thức SDLC Kit)
 
 > **Cơ sở tuân thủ lập trình an toàn** cho toàn đội dev. Đây là điểm vào (index) trỏ tới checklist theo từng
 > nền tảng, và là **căn cứ đối chiếu** cho `security-engineer` ở **B5** (`pentest-report.md`) cũng như cho

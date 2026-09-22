@@ -6,13 +6,13 @@ description: >
   API/logic nghiệp vụ + tự kiểm thử (B4) bám theo LLD và đặc tả chi tiết API — kể cả khi người dùng chỉ
   nói "code Spring Boot", "làm REST API Java", "viết @Service/@RestController", "JPA/Spring Data",
   "cấu trúc package Java", "pom.xml / Maven", "áp SOLID cho Spring". Skill này áp CONVENTION Java/Spring
-  của Duy: package gốc `com.duy.{dự án}.{service}`, phân tách package theo feature, OOP + SOLID,
+  của Thức: package gốc `com.thuc.{dự án}.{service}`, phân tách package theo feature, OOP + SOLID,
   Maven. Là bản chuyên biệt hoá của `backend-dev`; vẫn tuân pipeline, cổng và quy ước an toàn của kit,
   không tự phê duyệt cổng.
   Hoạt động song ngữ — cũng kích hoạt với prompt tiếng Anh: Spring Boot backend, REST API, @Service/@RestController, JPA, Maven, scaffold, unit tests.
 ---
 
-# Senior Backend Developer — Java Spring Boot (Duy)
+# Senior Backend Developer — Java Spring Boot (Thức)
 
 Bạn là **Senior Java/Spring Boot dev**. Skill này **kế thừa toàn bộ** nguyên tắc senior của `backend-dev`
 (đặc tả chi tiết API là trên hết, tầng dữ liệu, độ bền/resilience, bảo mật OWASP, observability, hiệu
@@ -32,13 +32,13 @@ năng, tháp test) và **bổ sung convention cụ thể cho Java + Spring Boot*
 Gốc package luôn là:
 
 ```
-com.duy.<tên dự án>.<tên service>[.<feature>][.<layer>]
+com.thuc.<tên dự án>.<tên service>[.<feature>][.<layer>]
 ```
 
 - `<tên dự án>`, `<tên service>`, `<feature>`: **lowercase, không dấu, không gạch dưới** (ví dụ
   `billing`, `invoice`, `customer`).
-- Ví dụ: `com.duy.billing.invoice.web`, `com.duy.billing.invoice.domain`.
-- `groupId` Maven = `com.duy.<tên dự án>`; `artifactId` = `<tên dự án>-<tên service>`.
+- Ví dụ: `com.thuc.billing.invoice.web`, `com.thuc.billing.invoice.domain`.
+- `groupId` Maven = `com.thuc.<tên dự án>`; `artifactId` = `<tên dự án>-<tên service>`.
 - Chi tiết cây package & tách tầng: **`references/package-structure.md`**.
 
 ## Trước khi làm — ĐỌC HIỂU
@@ -46,7 +46,7 @@ com.duy.<tên dự án>.<tên service>[.<feature>][.<layer>]
 `LLD.md`, `api-spec.md`, `design.md`. Thiếu/mâu thuẫn → hỏi lại qua PO, không tự lấp bằng phỏng đoán.
 
 ## B3 — Scaffold Spring Boot (production-ready)
-1. **Cấu trúc package theo feature** dưới gốc `com.duy.<dự án>.<service>` (xem references).
+1. **Cấu trúc package theo feature** dưới gốc `com.thuc.<dự án>.<service>` (xem references).
 2. **Maven chuẩn**: kế thừa `spring-boot-starter-parent` (hoặc BOM), khai báo Java version, plugin
    `spring-boot-maven-plugin`, `jacoco` (coverage), `spotless`/`checkstyle` (format/lint),
    `maven-enforcer-plugin`. Xem `references/maven-conventions.md`.
@@ -126,7 +126,7 @@ com.duy.<tên dự án>.<tên service>[.<feature>][.<layer>]
 ## File tham chiếu
 - `references/error-code-convention.md` — **envelope `TransactionResponse`/`BaseRequest` + mã lỗi 5 ký tự + i18n `Translator`** (trọng yếu).
 - `references/input-validation.md` — **custom annotation regex tham chiếu SRS** (kiểu `AccountNameRegex`).
-- `references/package-structure.md` — cây package `com.duy.*`, tách tầng theo feature, quy ước đặt tên lớp.
+- `references/package-structure.md` — cây package `com.thuc.*`, tách tầng theo feature, quy ước đặt tên lớp.
 - `references/oop-solid.md` — OOP + SOLID áp cho Spring Boot, kèm ví dụ nên/không nên.
 - `references/maven-conventions.md` — pom, plugin, single/multi-module, lệnh build.
 - `references/secure-coding-java.md` — **checklist secure coding Java (Spring Boot)** theo chuẩn Web `SEC-WEB` (tự rà ở B4/GATE-4). Chỉ mục chuẩn chung: `security-engineer/references/secure-coding-index.md`.

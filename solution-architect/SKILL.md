@@ -69,7 +69,7 @@ chốt vào `techstack.md` — không tự quyết, không để "chọn sau":
 - **Version framework** (ví dụ Spring Boot 3.x, Angular 18, Next.js 15…) — lý do + rủi ro nâng cấp.
 - **Version nền tảng & CSDL** (PostgreSQL/Oracle/Redis/Kafka…, OS/runtime, Docker base image) — lý do.
 - **Backend Java:** chốt luôn **Maven** (single/multi-module, `groupId`/`artifactId`) và **cấu trúc package**
-  (gốc `com.duy.{dự án}.{service}`, package-by-feature — theo convention `backend-dev-java`).
+  (gốc `com.thuc.{dự án}.{service}`, package-by-feature — theo convention `backend-dev-java`).
 
 Trình dạng **bảng đề xuất: Thành phần | Version đề xuất | Lý do | Phương án khác** → anh Thức xác nhận
 từng dòng → mới ghi vào `techstack.md`. Ghi chú lại dòng nào anh sửa. Version đã xác nhận là **ràng buộc

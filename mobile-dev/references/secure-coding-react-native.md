@@ -1,4 +1,4 @@
-# Secure Coding Checklist — React Native (Duy Mobile)
+# Secure Coding Checklist — React Native (Thức Mobile)
 
 Checklist secure coding cho **React Native**, chắt từ chuẩn **SEC-MOBILE** (bản đã ký là bản chính thức; file này là checklist làm việc).
 
